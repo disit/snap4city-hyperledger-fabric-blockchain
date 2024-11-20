@@ -1,0 +1,4 @@
+{
+   "jwk":"https://www.snap4city.org/auth/realms/master/protocol/openid-connect/certs",
+   "trustedIss":"https://www.snap4city.org/auth/realms/master"
+}

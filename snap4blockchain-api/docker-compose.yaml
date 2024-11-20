@@ -1,0 +1,18 @@
+services:
+  s4c-blockchain-api:
+    image: disitlab/snap4city-blockchain-api:v0
+    build: .
+    #command: "/bin/bash -c 'sleep 3600' "
+    environment:
+      S4C_ISSUER: "http://s4chost/auth/realms/master"
+      S4C_JWK: "http://s4chost/auth/realms/master/protocol/openid-connect/certs"
+      CHANNEL_NAME: 'mychannel'
+      CHAINCODE_NAME: 'fabdev'
+      MSP_ID: 'Org2MSP'
+      KEY_DIRECTORY_PATH: crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/keystore
+      CERT_PATH: crypto-config/peerOrganizations/org2.example.com/users/User1@org2.example.com/msp/signcerts/cert.pem
+      TLS_CERT_PATH: crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+      PEER_ENDPOINT: 'peer0host:9051'
+      PEER_HOST_ALIAS: 'peer0.org2.example.com'
+    volumes:
+      - ./crypto-config:/snap4city-blockchain-api/crypto-config
